@@ -4,12 +4,11 @@ import { DatabaseModule } from './shared/database/database.module';
 import { AuthModule } from './modules/auth/auth.module';
 import { AuthGuard } from './modules/auth/auth.guard';
 import { APP_GUARD } from '@nestjs/core';
-import { JwtService } from '@nestjs/jwt';
 
 @Module({
   imports: [UsersModule, DatabaseModule, AuthModule],
   controllers: [],
-  providers: [JwtService,{
+  providers: [{
     provide: APP_GUARD,
     useClass: AuthGuard,
   },
