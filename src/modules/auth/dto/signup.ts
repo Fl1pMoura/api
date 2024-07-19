@@ -1,6 +1,6 @@
 import { IsEmail, IsNotEmpty, IsString, MinLength } from "class-validator"
 
-export class CreateUserDto {
+export class SignupDto {
   @IsString({message: "O nome não pode ser um numeral"})
   @IsNotEmpty({message: "O nome é obrigatório"})
   name: string
