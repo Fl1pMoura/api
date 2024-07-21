@@ -29,21 +29,30 @@ export class TransactionsService {
   }
 
   async update(userId: string,transactionId: string, updateTransactionDto: UpdateTransactionDto) {
-    const { bankAccountId, categoryId } = updateTransactionDto;
+    const { bankAccountId, categoryId, date, name, type, value } = updateTransactionDto;
 
     await this.validateEntitiesOwnership({userId, bankAccountId, categoryId, transactionId})
 
-    return `This action updates a #${transactionId} transaction`;
+    return this.transactionsRepo.update({
+      where: {id: transactionId}, 
+      data: { bankAccountId, categoryId, date, name, type, value}
+    });
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} transaction`;
+  async remove(userId: string, transactionId: string) {
+    await this.validateEntitiesOwnership({userId, transactionId})
+   
+    await this.transactionsRepo.delete({
+      where: {id: transactionId},
+    })
+
+    return null;
   }
 
-  private async validateEntitiesOwnership({userId, bankAccountId, categoryId, transactionId}: { userId: string, bankAccountId: string, categoryId: string, transactionId?: string }){
+  private async validateEntitiesOwnership({userId, bankAccountId, categoryId, transactionId}: { userId: string, bankAccountId?: string, categoryId?: string, transactionId?: string }){
     await Promise.all([  
       transactionId && this.validateTransactionOwnershipService.validate(userId, transactionId),
-      this.validateBankAccountOwnershipService.validate(userId, bankAccountId),
-      this.validateCategoryOwnershipService.validate(userId, categoryId)])
+      bankAccountId && this.validateBankAccountOwnershipService.validate(userId, bankAccountId),
+      categoryId &&this.validateCategoryOwnershipService.validate(userId, categoryId)])
   }
 }
