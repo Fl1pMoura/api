@@ -18,10 +18,27 @@ export class BankAccountsService {
     );
   }
 
-  findAllByUserId(userId: string) {
-    return this.BankAccountRepo.findMany({
-      where: {userId}
+  async findAllByUserId(userId: string) {
+    const bankAccounts = await this.BankAccountRepo.findMany({
+      where: {userId},
+      include:{
+        transactions: {
+          select: {value: true, type: true}
+        },
+      }
     });
+
+    return bankAccounts.map(({transactions, ...bankAccount}) => {
+      const totalTransaction = transactions.reduce(
+        (acc, transaction) => acc + (transaction.type === "INCOME" ? transaction.value : -transaction.value), 0)
+      
+      const currentBalance = bankAccount.initialBalance + totalTransaction;
+      return{
+        ...bankAccount,
+        transactions,
+        currentBalance,
+      }
+    })
   }
 
   findOne(id: number) {
