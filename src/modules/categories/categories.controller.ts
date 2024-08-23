@@ -1,13 +1,11 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
-import { CategoriesService } from './services/categories.service';
-import { CreateCategoryDto } from './dto/create-category.dto';
-import { UpdateCategoryDto } from './dto/update-category.dto';
-import { ActiveUserId } from 'src/shared/decorators/ActiveUserId';
+import { Controller, Get } from "@nestjs/common";
+import { ActiveUserId } from "src/shared/decorators/ActiveUserId";
+import { CategoriesService } from "./services/categories.service";
 
-@Controller('categories')
+@Controller("categories")
 export class CategoriesController {
   constructor(private readonly categoriesService: CategoriesService) {}
- 
+
   @Get()
   findMany(@ActiveUserId() userId: string) {
     return this.categoriesService.findAllByUserId(userId);
