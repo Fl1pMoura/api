@@ -20,7 +20,7 @@ import { UpdateTransactionDto } from "./dto/update-transaction.dto";
 import { TransactionType } from "./entities/Transaction";
 import { TransactionsService } from "./services/transactions.service";
 
-@Controller("transactions")
+@Controller("api/transactions")
 export class TransactionsController {
   constructor(private readonly transactionsService: TransactionsService) {}
 

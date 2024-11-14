@@ -15,7 +15,7 @@ import { CreateBankAccountDto } from "./dto/create-bank-account.dto";
 import { UpdateBankAccountDto } from "./dto/update-bank-account.dto";
 import { ActiveUserId } from "src/shared/decorators/ActiveUserId";
 
-@Controller("bank-accounts")
+@Controller("api/bank-accounts")
 export class BankAccountsController {
   constructor(private readonly bankAccountsService: BankAccountsService) {}
 

@@ -2,7 +2,7 @@ import { Controller, Get } from "@nestjs/common";
 import { ActiveUserId } from "src/shared/decorators/ActiveUserId";
 import { UsersService } from "./users.service";
 
-@Controller("users")
+@Controller("api/users")
 export class UsersController {
   constructor(private readonly usersService: UsersService) {}
 
