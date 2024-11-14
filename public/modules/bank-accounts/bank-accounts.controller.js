@@ -52,25 +52,25 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], BankAccountsController.prototype, "findAll", null);
 __decorate([
-    (0, common_1.Put)(':bankAccountId'),
+    (0, common_1.Put)(":bankAccountId"),
     __param(0, (0, ActiveUserId_1.ActiveUserId)()),
-    __param(1, (0, common_1.Param)('bankAccountId', common_1.ParseUUIDPipe)),
+    __param(1, (0, common_1.Param)("bankAccountId", common_1.ParseUUIDPipe)),
     __param(2, (0, common_1.Body)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String, String, update_bank_account_dto_1.UpdateBankAccountDto]),
     __metadata("design:returntype", void 0)
 ], BankAccountsController.prototype, "update", null);
 __decorate([
-    (0, common_1.Delete)(':bankAccountId'),
+    (0, common_1.Delete)(":bankAccountId"),
     (0, common_1.HttpCode)(common_1.HttpStatus.NO_CONTENT),
     __param(0, (0, ActiveUserId_1.ActiveUserId)()),
-    __param(1, (0, common_1.Param)('bankAccountId', common_1.ParseUUIDPipe)),
+    __param(1, (0, common_1.Param)("bankAccountId", common_1.ParseUUIDPipe)),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String, String]),
     __metadata("design:returntype", void 0)
 ], BankAccountsController.prototype, "remove", null);
 exports.BankAccountsController = BankAccountsController = __decorate([
-    (0, common_1.Controller)('bank-accounts'),
+    (0, common_1.Controller)("bank-accounts"),
     __metadata("design:paramtypes", [bank_accounts_service_1.BankAccountsService])
 ], BankAccountsController);
 //# sourceMappingURL=bank-accounts.controller.js.map

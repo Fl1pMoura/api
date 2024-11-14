@@ -1,4 +1,4 @@
-import { BankAccountsRepository } from 'src/shared/database/repositories/bank-accounts.repositories';
+import { BankAccountsRepository } from "src/shared/database/repositories/bank-accounts.repositories";
 export declare class validateBankAccountOwnershipService {
     private readonly BankAccountRepo;
     constructor(BankAccountRepo: BankAccountsRepository);

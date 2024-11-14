@@ -1,4 +1,11 @@
-import { IsEnum, IsHexColor, isNotEmpty, IsNotEmpty, IsNumber, IsString } from "class-validator";
+import {
+  IsEnum,
+  IsHexColor,
+  isNotEmpty,
+  IsNotEmpty,
+  IsNumber,
+  IsString,
+} from "class-validator";
 import { BankAccountType } from "../entities/BankAccount";
 
 export class CreateBankAccountDto {

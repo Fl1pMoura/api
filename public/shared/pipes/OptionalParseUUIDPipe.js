@@ -4,7 +4,7 @@ exports.OptionalParseUUIDPipe = void 0;
 const common_1 = require("@nestjs/common");
 class OptionalParseUUIDPipe extends common_1.ParseUUIDPipe {
     async transform(value, metadata) {
-        if (typeof value === 'undefined') {
+        if (typeof value === "undefined") {
             return undefined;
         }
         return super.transform(value, metadata);

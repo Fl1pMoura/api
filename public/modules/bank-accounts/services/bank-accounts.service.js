@@ -20,19 +20,24 @@ let BankAccountsService = class BankAccountsService {
     }
     create(userId, createBankAccountDto) {
         const { color, initialBalance, name, type } = createBankAccountDto;
-        return this.BankAccountRepo.create({ data: { userId, color, initialBalance, name, type } });
+        return this.BankAccountRepo.create({
+            data: { userId, color, initialBalance, name, type },
+        });
     }
     async findAllByUserId(userId) {
         const bankAccounts = await this.BankAccountRepo.findMany({
             where: { userId },
             include: {
                 transactions: {
-                    select: { value: true, type: true }
+                    select: { value: true, type: true },
                 },
-            }
+            },
         });
         return bankAccounts.map(({ transactions, ...bankAccount }) => {
-            const totalTransaction = transactions.reduce((acc, transaction) => acc + (transaction.type === "INCOME" ? transaction.value : -transaction.value), 0);
+            const totalTransaction = transactions.reduce((acc, transaction) => acc +
+                (transaction.type === "INCOME"
+                    ? transaction.value
+                    : -transaction.value), 0);
             const currentBalance = bankAccount.initialBalance + totalTransaction;
             return {
                 ...bankAccount,
@@ -49,13 +54,13 @@ let BankAccountsService = class BankAccountsService {
         await this.validateBankAccountOwnershipService.validate(userId, bankAccountId);
         return this.BankAccountRepo.update({
             where: { id: bankAccountId },
-            data: { color, initialBalance, name, type }
+            data: { color, initialBalance, name, type },
         });
     }
     async remove(userId, bankAccountId) {
         await this.validateBankAccountOwnershipService.validate(userId, bankAccountId);
         await this.BankAccountRepo.delete({
-            where: { id: bankAccountId }
+            where: { id: bankAccountId },
         });
     }
 };

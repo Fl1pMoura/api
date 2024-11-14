@@ -1,7 +1,7 @@
-import { CreateBankAccountDto } from '../dto/create-bank-account.dto';
-import { UpdateBankAccountDto } from '../dto/update-bank-account.dto';
-import { BankAccountsRepository } from 'src/shared/database/repositories/bank-accounts.repositories';
-import { validateBankAccountOwnershipService } from './validate-bank-account-ownership.service';
+import { CreateBankAccountDto } from "../dto/create-bank-account.dto";
+import { UpdateBankAccountDto } from "../dto/update-bank-account.dto";
+import { BankAccountsRepository } from "src/shared/database/repositories/bank-accounts.repositories";
+import { validateBankAccountOwnershipService } from "./validate-bank-account-ownership.service";
 export declare class BankAccountsService {
     private readonly BankAccountRepo;
     private readonly validateBankAccountOwnershipService;

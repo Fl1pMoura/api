@@ -1,5 +1,5 @@
-import { Prisma } from '@prisma/client';
-import { PrismaService } from 'src/shared/database/prisma.service';
+import { Prisma } from "@prisma/client";
+import { PrismaService } from "src/shared/database/prisma.service";
 export declare class BankAccountsRepository {
     private readonly prismaService;
     constructor(prismaService: PrismaService);

@@ -17,9 +17,11 @@ let validateBankAccountOwnershipService = class validateBankAccountOwnershipServ
         this.BankAccountRepo = BankAccountRepo;
     }
     async validate(userId, bankAccountId) {
-        const isOwner = await this.BankAccountRepo.findFirst({ where: { userId, id: bankAccountId } });
+        const isOwner = await this.BankAccountRepo.findFirst({
+            where: { userId, id: bankAccountId },
+        });
         if (!isOwner) {
-            throw new common_1.NotFoundException('Conta bancária não encontrada');
+            throw new common_1.NotFoundException("Conta bancária não encontrada");
         }
     }
 };

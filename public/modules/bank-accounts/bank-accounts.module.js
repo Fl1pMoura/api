@@ -18,7 +18,7 @@ exports.BankAccountsModule = BankAccountsModule = __decorate([
     (0, common_1.Module)({
         controllers: [bank_accounts_controller_1.BankAccountsController],
         providers: [bank_accounts_service_1.BankAccountsService, validate_bank_account_ownership_service_1.validateBankAccountOwnershipService],
-        exports: [validate_bank_account_ownership_service_1.validateBankAccountOwnershipService]
+        exports: [validate_bank_account_ownership_service_1.validateBankAccountOwnershipService],
     })
 ], BankAccountsModule);
 //# sourceMappingURL=bank-accounts.module.js.map

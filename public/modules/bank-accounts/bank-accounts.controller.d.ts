@@ -1,6 +1,6 @@
-import { BankAccountsService } from './services/bank-accounts.service';
-import { CreateBankAccountDto } from './dto/create-bank-account.dto';
-import { UpdateBankAccountDto } from './dto/update-bank-account.dto';
+import { BankAccountsService } from "./services/bank-accounts.service";
+import { CreateBankAccountDto } from "./dto/create-bank-account.dto";
+import { UpdateBankAccountDto } from "./dto/update-bank-account.dto";
 export declare class BankAccountsController {
     private readonly bankAccountsService;
     constructor(bankAccountsService: BankAccountsService);
